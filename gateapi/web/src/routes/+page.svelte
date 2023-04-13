@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-	import { ROUTES } from './routes'
+	import { ROUTES } from './routes/routes'
 </script>
 
 <svelte:head>
