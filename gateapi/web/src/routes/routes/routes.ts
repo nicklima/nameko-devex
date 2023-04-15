@@ -1,5 +1,14 @@
-export const ROUTES = {
-	Home: '/',
-	'Property details': '/property-details',
-	PageTwo: '/page-two',
-}
+export const ROUTES = [
+	{
+		name: 'Home',
+		path: '/',
+	},
+	{
+		name: 'Property details',
+		path: '/property-details',
+	},
+	{
+		name: 'PageTwo',
+		path: '/page-two',
+	},
+]
