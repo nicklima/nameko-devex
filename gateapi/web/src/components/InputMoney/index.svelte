@@ -1,21 +1,11 @@
 <script lang="ts">
-	import {
-		Arrow,
-		Baths,
-		Beds,
-		Calendar,
-		Condo,
-		Dollar,
-		House,
-		Month,
-		Profile,
-	} from '@icons'
+	import { Dollar, Month } from '@icons'
 
 	export let name: string
 	export let label: string
 	export let value: string = ''
 	export let placeholder: string = ''
-	export let maxlength: number = ''
+	export let maxlength: number = null
 	export let cssClass: string = ''
 
 	export let locale: string = 'en-US'
@@ -32,7 +22,7 @@
 
 	function handleInput(event) {
 		let inputValue = event.target.value.replace(/[^0-9.]/g, '')
-		value = formatCurrency(inputValue)
+		value = value ? formatCurrency(inputValue) : ''
 	}
 </script>
 

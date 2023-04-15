@@ -1,15 +1,13 @@
 <script lang="ts">
-	import { Arrow } from '@icons'
+	import type { SvelteComponent as Component } from 'svelte'
 
-	export let icon: string
+	export let icon: typeof Component
 	export let name: string
 	export let label: string
-	export let value: string = ''
+	export let value: string
 	export let cssClass: string = ''
 
-	const handleChoice = (event) => {
-		return (value = label)
-	}
+	const handleChoice = () => (value = label)
 </script>
 
 <label>
@@ -21,7 +19,15 @@
 		on:change={handleChoice}
 	/>
 	<div
-		class="flex items-center gap-3 border rounded p-5 text-slate-700 transition-all hover:border-violet-400 hover:text-violet-400"
+		class="
+			flex items-center gap-3
+			p-5
+			border rounded
+			text-slate-700
+			transition-all
+			hover:border-violet-400 hover:text-violet-400
+			{cssClass}
+		"
 	>
 		<svelte:component this={icon} />
 		<span class="block text-sm font-medium">{label}</span>
@@ -29,9 +35,6 @@
 </label>
 
 <style>
-	input[type='radio'] {
-	}
-
 	input[type='radio']:checked + div {
 		@apply bg-violet-100;
 		@apply text-violet-600;

@@ -1,7 +1,8 @@
 <script lang="ts">
+	import type { SvelteComponent as Component } from 'svelte'
 	import { Arrow } from '@icons'
 
-	export let icon: string
+	export let icon: typeof Component
 	export let name: string
 	export let label: string
 	export let options: (string | number)[]
@@ -33,7 +34,7 @@
 				{cssClass}
 			"
 		>
-			<option value="" disable="true" select>Select</option>
+			<option value="" selected disabled>Select</option>
 			{#each [...options] as option}
 				<option value={option}>{option}</option>
 			{/each}

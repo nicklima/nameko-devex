@@ -1,9 +1,9 @@
 <script lang="ts">
 	export let name: string
 	export let label: string
-	export let value: number = ''
+	export let value: string = ''
 	export let placeholder: string = ''
-	export let maxlength: number = ''
+	export let maxlength: number = null
 	export let cssClass: string = ''
 
 	function handleInput(event) {
@@ -20,7 +20,6 @@
 		bind:value
 		on:input={handleInput}
 		type="text"
-		max
 		class="
 			mt-1 p-4
 			font-semibold
