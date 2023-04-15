@@ -2,3 +2,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.flatpickr-months .flatpickr-prev-month:hover svg,
+.flatpickr-months .flatpickr-next-month:hover svg {
+	@apply fill-white;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+	@apply appearance-none;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months,
+.flatpickr-months .flatpickr-month,
+.flatpickr-weekdays,
+.flatpickr-day.selected,
+span.flatpickr-weekday {
+	@apply bg-violet-500;
+	@apply hover:bg-violet-500;
+	@apply text-white;
+}
+
+.flatpickr-current-month
+	.flatpickr-monthDropdown-months
+	.flatpickr-monthDropdown-month {
+	@apply bg-violet-700;
+}
+
+.flatpickr-calendar.arrowBottom:after {
+	@apply border-t-violet-500;
+}
+
+.flatpickr-calendar.arrowTop:after {
+	@apply border-b-violet-500;
+}
+
+.flatpickr-day.selected {
+	@apply border-violet-500;
+	@apply hover:border-violet-500;
+}
