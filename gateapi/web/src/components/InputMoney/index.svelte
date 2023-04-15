@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { moneyMask } from '@utils'
 	import { Dollar, Month } from '@icons'
 
 	export let name: string
@@ -8,21 +9,9 @@
 	export let maxlength: number = null
 	export let cssClass: string = ''
 
-	export let locale: string = 'en-US'
-	export let currency: string = 'USD'
-
-	const formatter = new Intl.NumberFormat(locale, {
-		style: 'currency',
-		currency: currency,
-	})
-
-	function formatCurrency(value) {
-		return formatter.format(value).replace(/[^\d.-]/g, '')
-	}
-
 	function handleInput(event) {
 		let inputValue = event.target.value.replace(/[^0-9.]/g, '')
-		value = value ? formatCurrency(inputValue) : ''
+		value = value ? moneyMask(inputValue) : ''
 	}
 </script>
 

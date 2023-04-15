@@ -47,6 +47,12 @@
 			"@icons/*": [
 				"src/icons/*"
 			],
+			"@utils": [
+				"src/utils"
+			],
+			"@utils/*": [
+				"src/utils/*"
+			],
 			"@components": [
 				"src/components"
 			],

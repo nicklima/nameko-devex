@@ -11,6 +11,7 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			'@icons': path.resolve('./src/icons'),
+			'@utils': path.resolve('./src/utils'),
 			'@components': path.resolve('./src/components'),
 		},
 	},
