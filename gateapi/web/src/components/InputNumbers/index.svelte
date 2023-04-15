@@ -6,9 +6,8 @@
 	export let maxlength: number = null
 	export let cssClass: string = ''
 
-	function handleInput(event) {
-		value = event.target.value.replace(/[^0-9.]/g, '')
-	}
+	const handleInput = (event) =>
+		(value = event.target.value.replace(/[^0-9.]/g, ''))
 </script>
 
 <label class="block">
