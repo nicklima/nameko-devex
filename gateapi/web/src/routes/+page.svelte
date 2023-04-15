@@ -6,7 +6,7 @@
 	<title>Home</title>
 </svelte:head>
 
-<main>
+<main class="flex justify-center">
 	{#each Object.entries(ROUTES) as [name, route]}
 		<a class="mx-2 text-blue-400 underline" href={route}>{name}</a>
 	{/each}
