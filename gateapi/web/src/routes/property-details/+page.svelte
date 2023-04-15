@@ -93,7 +93,6 @@
 					placeholder="Name and/or number"
 					bind:value={formData.unitName}
 				/>
-
 				<InputMoney
 					label="Rents"
 					name="rents"
@@ -104,9 +103,10 @@
 					name="deposit"
 					bind:value={formData.depositValue}
 				/>
-				<InputSimple
+				<InputNumber
 					label="Lease Length (months)"
 					name="leaseLength"
+					maxlength={3}
 					bind:value={formData.leaseLength}
 				/>
 			</div>
@@ -125,17 +125,23 @@
 					options={[1, 2, 3, 4, '5+']}
 					bind:value={formData.baths}
 				/>
-				<InputNumber label="Sq. Ft." name="sqFt" bind:value={formData.sqFt} />
+				<InputNumber
+					label="Sq. Ft."
+					name="sqFt"
+					maxlength={6}
+					bind:value={formData.sqFt}
+				/>
 				<InputDate
 					label="Available On"
 					name="availableOn"
+					placeholder="Select a date"
 					bind:value={formData.availableOn}
 				/>
 				<InputSelect
 					label="Vacancy"
 					icon={Profile}
 					name="vacancy"
-					options={['a', 'b', 'c', 'd']}
+					options={['Option 1', 'Option 2', 'Option 3', 'Option 3']}
 					bind:value={formData.vacancy}
 				/>
 			</div>

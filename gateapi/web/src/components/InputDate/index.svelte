@@ -6,7 +6,9 @@
 	let picker
 
 	onMount(() => {
-		picker = flatpickr('#datepicker', {})
+		picker = flatpickr('#datepicker', {
+			dateFormat: 'm/d/Y',
+		})
 		picker.calendarContainer.classList.add('svelte-1wa3zi1') // Add Svelte class
 	})
 

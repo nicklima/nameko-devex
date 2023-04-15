@@ -15,6 +15,7 @@
 	export let label: string
 	export let value: string = ''
 	export let placeholder: string = ''
+	export let maxlength: number = ''
 	export let cssClass: string = ''
 
 	export let locale: string = 'en-US'
@@ -44,6 +45,7 @@
 		<input
 			{name}
 			{placeholder}
+			{maxlength}
 			bind:value
 			on:change={handleInput}
 			type="text"
