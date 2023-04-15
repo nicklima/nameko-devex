@@ -1,22 +1,13 @@
 <script lang="ts">
 	import {
-		InputSimple,
-		InputMoney,
-		InputSelect,
-		InputDate,
 		InputChoice,
+		InputDate,
+		InputMoney,
 		InputNumber,
+		InputSelect,
+		InputSimple,
 	} from '@components'
-	import {
-		Arrow,
-		Baths,
-		Beds,
-		Condo,
-		Dollar,
-		House,
-		Month,
-		Profile,
-	} from '@icons'
+	import { Baths, Beds, Condo, House, Profile } from '@icons'
 
 	export const typeOptions = [
 		{
@@ -37,7 +28,7 @@
 		},
 	]
 
-	let formData = {}
+	let formData = {} as FormData
 	$: console.log(formData)
 </script>
 
@@ -96,11 +87,13 @@
 				<InputMoney
 					label="Rents"
 					name="rents"
+					maxlength={10}
 					bind:value={formData.rentValue}
 				/>
 				<InputMoney
 					label="Deposit"
 					name="deposit"
+					maxlength={10}
 					bind:value={formData.depositValue}
 				/>
 				<InputNumber
