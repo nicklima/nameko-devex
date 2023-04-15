@@ -40,6 +40,18 @@
 			],
 			"$lib/*": [
 				"src/lib/*"
+			],
+			"@icons": [
+				"src/icons"
+			],
+			"@icons/*": [
+				"src/icons/*"
+			],
+			"@components": [
+				"src/components"
+			],
+			"@components/*": [
+				"src/components/*"
 			]
 		}
 	},
