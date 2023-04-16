@@ -5,6 +5,7 @@
 	export let name: string
 	export let label: string
 	export let value: string
+	export let error: string = ''
 	export let cssClass: string = ''
 
 	const handleChoice = () => (value = label)
@@ -27,6 +28,7 @@
 			transition-all
 			hover:border-violet-400 hover:text-violet-400
 			{cssClass}
+			{!!error && 'border-red-500'}
 		"
 	>
 		<svelte:component this={icon} />
