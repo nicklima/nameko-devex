@@ -61,7 +61,7 @@
 			</div>
 		</div>
 		<figure class="col-start-8 col-end-13 hidden md:block">
-			<img src="figure-house.svg" alt="" class="w-full" />
+			<img src="/figure-house.svg" alt="" class="w-full" />
 		</figure>
 
 		<div class="flex justify-between items-center col-span-12">
