@@ -3,8 +3,7 @@ import type { ProductResponse } from './interface'
 export async function load({ fetch }) {
 	const fetchResponse = async () => {
 		const productResponse = await fetch('http://localhost:8003/orders/1')
-		const product = await productResponse.json()
-
+		const product: ProductResponse = await productResponse.json()
 		return product
 	}
 
@@ -15,7 +14,8 @@ export async function load({ fetch }) {
 				id: 1,
 				quantity: 1,
 				product_id: 'the_odyssey',
-				image: 'http://www.example.com/airship/images/the_odyssey.jpg',
+				image: 'https://images.unsplash.com/photo-1623020874699-0ddd626114a8',
+				// image: 'http://www.example.com/airship/images/the_odyssey.jpg',
 				price: '100000.99',
 				product: {
 					maximum_speed: 5,
@@ -28,5 +28,8 @@ export async function load({ fetch }) {
 		],
 	}
 
-	return { product: mockedProduct }
+	return {
+		product: mockedProduct,
+		//fetchResponse()
+	}
 }
