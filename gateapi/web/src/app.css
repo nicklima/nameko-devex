@@ -2,3 +2,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.svelte-calendar .flatpickr-calendar * {
+	@apply transition-all;
+}
+
+.svelte-calendar .flatpickr-current-month .flatpickr-monthDropdown-months {
+	@apply appearance-none;
+	@apply bg-violet-500;
+}
+
+.svelte-calendar .flatpickr-months .flatpickr-month,
+.svelte-calendar .flatpickr-weekdays,
+.svelte-calendar .flatpickr-weekday,
+.svelte-calendar
+	.flatpickr-current-month
+	.flatpickr-monthDropdown-months
+	.flatpickr-monthDropdown-month {
+	@apply bg-violet-500;
+	@apply text-white;
+}
+
+.svelte-calendar .flatpickr-day.selected {
+	@apply bg-violet-500;
+	@apply text-white;
+	@apply border-violet-500;
+}
+
+.svelte-calendar .flatpickr-day:hover {
+	@apply bg-violet-500;
+	@apply border-violet-500;
+	@apply text-white;
+}
+
+.svelte-calendar .flatpickr-day.today {
+	@apply bg-violet-200;
+	@apply border-violet-200;
+	@apply hover:bg-violet-500;
+	@apply hover:border-violet-500;
+	@apply text-violet-600;
+}
+
+.svelte-calendar.flatpickr-calendar.arrowBottom:after {
+	@apply border-t-violet-500;
+}
+
+.svelte-calendar.flatpickr-calendar.arrowTop:after {
+	@apply border-b-violet-500;
+}
