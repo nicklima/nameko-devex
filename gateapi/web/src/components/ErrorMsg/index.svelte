@@ -9,7 +9,6 @@
         {!!error
 		? `
             visible
-            opacity-100
             translate-x-0
             `
 		: `
