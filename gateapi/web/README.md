@@ -45,6 +45,7 @@ There are the steps that I followed:
 - Replace the build/dev/preview commands in the package.json file to use Vite
 - Add the Vite config file
 - Run the migration command "npx svelte-migrate routes" to fix the name of the route project files
+- Update the rest of the packages to fix potential security issues
 
 ### References:
 
@@ -61,8 +62,38 @@ I started this part of the challenge by creating a component and icon folder and
 
 After that, I created all the form inputs inside the component pages to reuse them on the page. All the input fields are bonded to a variable to help with the submission (not developed in this challenge).
 
-To create the date picker field, I used the flatpickr package since that was the best option that I found to use with the tailwind.
+To create the date picker field, I used the `flatpickr` package since that was the best option that I found to use with the tailwind.
 
-### API Page Fetch
+I had never developed with Svelte, so I wanted to try a little to see how things work in this stack, so I decided to use a FORM lib to handle the form data and the validations. I choose the `svelte-forms-lib` with `YUP` to form validation.
 
-I started this part of the challenge by adding a proxy config to the Vite config file to handle the CORS issues.
+<img src="page-form-validation.png" />
+
+### API Fetch Page
+
+I create a simple page to show the API response.
+
+Since the response gives me an object very similar to one product, I have developed the layout as a page to see the product details.
+
+Here is the page layout (with an illustrative image):
+
+<img src="page-api.png" />
+
+I started this part of the challenge by adding a proxy config to the Vite config file to handle the CORS issues. Due to that the new localhost project URL is on port 9000.
+
+It was the first time I developed an application with this technology.
+
+I researched how to handle the fetch with Svelte and found an interesting [video](https://www.youtube.com/watch?v=EQy-AYhZIlE) about this matter. I decided to use `+page.ts` to get the data.
+
+```ts
+import type { ProductResponse } from './interface'
+
+export async function load({ fetch }) {
+	const fetchResponse = async () => {
+		const productResponse = await fetch('http://localhost:8003/orders/1')
+		const product: ProductResponse = await productResponse.json()
+		return product
+	}
+
+	return { product: fetchResponse() }
+}
+```
