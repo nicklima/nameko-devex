@@ -7,11 +7,15 @@
 	@apply transition-all;
 }
 
-.svelte-calendar .flatpickr-current-month .flatpickr-monthDropdown-months {
+.svelte-calendar .flatpickr-current-month .flatpickr-monthDropdown-months,
+.svelte-calendar
+	.flatpickr-current-month
+	.flatpickr-monthDropdown-months:hover {
 	@apply appearance-none;
 	@apply bg-violet-500;
 }
 
+.svelte-calendar .numInputWrapper:hover,
 .svelte-calendar .flatpickr-months .flatpickr-month,
 .svelte-calendar .flatpickr-weekdays,
 .svelte-calendar .flatpickr-weekday,
@@ -29,6 +33,7 @@
 	@apply border-violet-500;
 }
 
+.svelte-calendar .flatpickr-day.selected:hover,
 .svelte-calendar .flatpickr-day:hover {
 	@apply bg-violet-500;
 	@apply border-violet-500;
@@ -49,4 +54,9 @@
 
 .svelte-calendar.flatpickr-calendar.arrowTop:after {
 	@apply border-b-violet-500;
+}
+
+.svelte-calendar .flatpickr-months .flatpickr-prev-month:hover svg,
+.svelte-calendar .flatpickr-months .flatpickr-next-month:hover svg {
+	@apply fill-violet-950;
 }
