@@ -56,7 +56,17 @@ There are the steps that I followed:
 
 Here I will describe all the changes I made to the project to achieve the goal of this challenge.
 
+### Home Page
+
+<img src="page-home.png" style="border: 1px solid #ccc; border-radius: 5px; overflow: hidden;" />
+
+I changed a little the home page layout.
+
+I just created a new menu (positioned in the middle of the page) because the old menu was very odd and not friendly.
+
 ### Property Page:
+
+<img src="page-form.png"  style="border: 1px solid #ccc; border-radius: 5px; overflow: hidden;" />
 
 I started this part of the challenge by creating a component and icon folder and configuring both paths with an alias on the Svelte Kit config.
 
@@ -64,9 +74,11 @@ After that, I created all the form inputs inside the component pages to reuse th
 
 To create the date picker field, I used the `flatpickr` package since that was the best option that I found to use with the tailwind.
 
+<img src="page-form-calendar.png"  style="border: 1px solid #ccc; border-radius: 5px; overflow: hidden;" />
+
 I had never developed with Svelte, so I wanted to try a little to see how things work in this stack, so I decided to use a FORM lib to handle the form data and the validations. I choose the `svelte-forms-lib` with `YUP` to form validation.
 
-<img src="page-form-validation.png" />
+<img src="page-form-validation.png"  style="border: 1px solid #ccc; border-radius: 5px; overflow: hidden;" />
 
 ### API Fetch Page
 
@@ -76,7 +88,7 @@ Since the response gives me an object very similar to one product, I have develo
 
 Here is the page layout (with an illustrative image):
 
-<img src="page-api.png" />
+<img src="page-api.png"  style="border: 1px solid #ccc; border-radius: 5px; overflow: hidden;" />
 
 I started this part of the challenge by adding a proxy config to the Vite config file to handle the CORS issues. Due to that the new localhost project URL is on port 9000.
 
