@@ -1,9 +1,22 @@
+import { error } from '@sveltejs/kit'
 import type { ProductResponse } from './interface'
 
 export async function load({ fetch }) {
+	const PORT = process.env.NODE_ENV === 'development' ? '9000' : '4173'
+
 	const fetchResponse = async () => {
-		const productResponse = await fetch('http://localhost:8003/orders/1')
-		const product: ProductResponse = await productResponse.json()
+		let product: ProductResponse
+		const url = `http://localhost:${PORT}/orders/1`
+		const productResponse = await fetch(url)
+
+		if (!productResponse.ok) {
+			throw error(
+				productResponse.status,
+				`HTTP error! status: ${productResponse.status}`
+			)
+		}
+
+		product = await productResponse.json()
 		return product
 	}
 
