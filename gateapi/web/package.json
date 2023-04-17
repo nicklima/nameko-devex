@@ -2,8 +2,8 @@
   "name": "web",
   "version": "0.0.1",
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
+    "dev": "cross-env NODE_ENV=development vite",
+    "build": "cross-env NODE_ENV=production vite build",
     "preview": "vite preview",
     "test": "playwright test",
     "check": "svelte-check --tsconfig ./tsconfig.json",
@@ -19,6 +19,7 @@
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
     "autoprefixer": "^10.4.14",
+    "cross-env": "^7.0.3",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-svelte3": "^4.0.0",
