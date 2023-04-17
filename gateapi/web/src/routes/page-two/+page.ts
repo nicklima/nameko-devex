@@ -2,7 +2,7 @@ import { error } from '@sveltejs/kit'
 import type { ProductResponse } from './interface'
 
 export async function load({ fetch }) {
-	const PORT = process.env.NODE_ENV === 'development' ? '9000' : '4173'
+	const PORT = process.env.NODE_ENV === 'development' ? '3000' : '4173'
 
 	const fetchResponse = async () => {
 		let product: ProductResponse
