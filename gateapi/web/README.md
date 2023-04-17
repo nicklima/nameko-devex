@@ -46,6 +46,7 @@ There are the steps that I followed:
 - Add the Vite config file
 - Run the migration command "npx svelte-migrate routes" to fix the name of the route project files
 - Update the rest of the packages to fix potential security issues
+- Add the CROSS ENV to handle the API request from both the DEV or PROD
 
 ### References:
 
@@ -62,7 +63,7 @@ Here I will describe all the changes I made to the project to achieve the goal o
 
 I changed a little the home page layout.
 
-I just created a new menu (positioned in the middle of the page) because the old menu was very odd and not friendly.
+I just created a new menu (positioned in the middle of the page) because the old menu was odd and not friendly.
 
 ### Property Page:
 
@@ -90,22 +91,37 @@ Here is the page layout (with an illustrative image):
 
 <img src="page-api.png"  style="border: 1px solid #ccc; border-radius: 5px; overflow: hidden;" />
 
-I started this part of the challenge by adding a proxy config to the Vite config file to handle the CORS issues. Due to that the new localhost project URL is on port 9000.
-
-It was the first time I developed an application with this technology.
+I started this part of the challenge by adding a proxy config to the Vite config file to handle possible CORS issues, so the new localhost project URL is on port 3000.
 
 I researched how to handle the fetch with Svelte and found an interesting [video](https://www.youtube.com/watch?v=EQy-AYhZIlE) about this matter. I decided to use `+page.ts` to get the data.
 
 ```ts
+import { error } from '@sveltejs/kit'
 import type { ProductResponse } from './interface'
 
 export async function load({ fetch }) {
+	const PORT = process.env.NODE_ENV === 'development' ? '3000' : '4173'
+
 	const fetchResponse = async () => {
-		const productResponse = await fetch('http://localhost:8003/orders/1')
-		const product: ProductResponse = await productResponse.json()
+		let product: ProductResponse
+		const url = `http://localhost:${PORT}/orders/1`
+		const productResponse = await fetch(url)
+
+		if (!productResponse.ok) {
+			throw error(
+				productResponse.status,
+				`HTTP error! status: ${productResponse.status}`
+			)
+		}
+
+		product = await productResponse.json()
 		return product
 	}
 
-	return { product: fetchResponse() }
+	return {
+		product: fetchResponse(),
+	}
 }
 ```
+
+I also decided to create a `+error.svelte` page to handle the errors with the connection to the API.
