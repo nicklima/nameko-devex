@@ -91,9 +91,11 @@ Here is the page layout (with an illustrative image):
 
 <img src="page-api.png"  style="border: 1px solid #ccc; border-radius: 5px; overflow: hidden;" />
 
-I started this part of the challenge by adding a proxy config to the Vite config file to handle possible CORS issues, so the new localhost project URL is on port 3000.
+I started this part of the challenge by adding a proxy config to the Vite config file to handle possible CORS issues.
 
 I researched how to handle the fetch with Svelte and found an interesting [video](https://www.youtube.com/watch?v=EQy-AYhZIlE) about this matter. I decided to use `+page.ts` to get the data.
+
+Here is the way I coded the fetch function:
 
 ```ts
 import { error } from '@sveltejs/kit'
@@ -125,3 +127,12 @@ export async function load({ fetch }) {
 ```
 
 I also decided to create a `+error.svelte` page to handle the errors with the connection to the API.
+
+<img src="page-api-error.png"  style="border: 1px solid #ccc; border-radius: 5px; overflow: hidden;" />
+
+### Final Considerations
+
+I tried to use typeScript on all the components and pages, setting all the interfaces to the functions and objects.
+
+That is the way I usually do my code. I hope you all enjoy it.
+I am satisfied with the results, but I am waiting to hear the feedback.
